@@ -1,6 +1,5 @@
 main:
-  # This is currently not public, so I set this for demo purposes only and use the code in my project (local)
-  components_repository: "https://github.com/olivergrau/short-term-rental-prices/#components"
+  components_repository: "https://github.com/olivergrau/showcase_airbnb_regression/#components"
   # All the intermediate files will be copied to this directory at the end of the run.
   # Set this to null if you are running in prod
   project_name: nyc_airbnb
