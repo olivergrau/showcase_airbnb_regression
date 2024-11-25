@@ -47,7 +47,7 @@ def go(config: DictConfig):
                 env_manager="conda",
                 parameters={
                     "sample": config["etl"]["sample"],
-                    "artifact_name": "sample.csv",
+                    "artifact_name": config["etl"]["sample"],
                     "artifact_type": "raw_data",
                     "artifact_description": "Raw file as downloaded"
                 },
@@ -58,8 +58,8 @@ def go(config: DictConfig):
                 os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),
                 "main",
                 parameters={
-                    "input_artifact": "sample.csv:latest",
-                    "output_artifact": "clean_sample.csv",
+                    "input_artifact": config["etl"]["sample"] + ":latest",
+                    "output_artifact": "clean_" + config["etl"]["sample"],
                     "output_type": "preprocessed_data",
                     "output_description": "Data with basic cleaning applied",
                     "min_price": config["etl"]["min_price"],
@@ -72,8 +72,8 @@ def go(config: DictConfig):
                 os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),                
                 "main",
                 parameters={
-                    "ref": "clean_sample.csv:reference",
-                    "csv": "clean_sample.csv:latest",
+                    "ref": "clean_" + config["etl"]["sample"] + ":reference",
+                    "csv": "clean_" + config["etl"]["sample"] + ":latest",
                     "kl_threshold": config["data_check"]["kl_threshold"],
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"],
@@ -87,7 +87,7 @@ def go(config: DictConfig):
                 #version='main', # don't need this with local access
                 env_manager="conda",
                 parameters={
-                    "input": "clean_sample.csv:latest",
+                    "input": "clean_" + config["etl"]["sample"] + ":latest",
                     "test_size": config["modeling"]["test_size"],
                     "random_seed": config["modeling"]["random_seed"],
                     "stratify_by": config["modeling"]["stratify_by"]

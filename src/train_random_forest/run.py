@@ -7,7 +7,7 @@ import logging
 import os
 import shutil
 import matplotlib.pyplot as plt
-plt.switch_backend('Agg')
+plt.switch_backend('Agg') # important because of the feature importance chart
 import tempfile
 import mlflow
 import json

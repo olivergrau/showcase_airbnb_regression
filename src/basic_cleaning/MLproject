@@ -6,27 +6,27 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: The name of the input dataset artifact to be cleaned (e.g., "sample1.csv:latest").
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: The name of the output dataset artifact after cleaning (e.g., "clean_sample.csv").
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: The type of the output artifact (e.g., "cleaned_data").
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: A brief description of the output artifact, summarizing the cleaning operations performed.
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
+        description: The minimum price threshold for filtering out rows with unrealistic or invalid prices.
         type: string
 
       max_price:
-        description: ## ADD DESCRIPTION
+        description: The maximum price threshold for filtering out rows with unrealistic or invalid prices.
         type: string
 
 

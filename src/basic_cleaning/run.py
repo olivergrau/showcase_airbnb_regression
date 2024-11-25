@@ -42,9 +42,9 @@ def go(args):
     df['last_review'] = pd.to_datetime(df['last_review'])
     logger.info("converted last_review to datetime")
     
-    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
-    df = df[idx].copy()
-    logger.info("applied longitude/latitude fix")
+    #idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    #df = df[idx].copy()
+    #logger.info("applied longitude/latitude fix")
 
     filename = "processed_data.csv"
     df.to_csv(filename, index=False)
